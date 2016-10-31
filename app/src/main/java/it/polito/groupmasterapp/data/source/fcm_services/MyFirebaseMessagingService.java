@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import it.polito.groupmasterapp.SlaveEvents;
+import it.polito.groupmasterapp.events.SlaveEvents;
 import it.polito.groupmasterapp.data.Device;
 import it.polito.groupmasterapp.data.Slave;
 

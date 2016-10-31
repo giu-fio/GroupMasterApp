@@ -30,6 +30,7 @@ public class GroupMembersRepository implements DevicesDataSource {
     private DeviceDataSource mDeviceDataSource;
     private Context mContext;
     private boolean mScanning;
+    private Group mGroup;
 
 
     private GroupMembersRepository(@NonNull SlaveDataSource slaveDataSource, @NonNull DeviceDataSource deviceDataSource, @NonNull Context context) {
@@ -80,8 +81,20 @@ public class GroupMembersRepository implements DevicesDataSource {
     }
 
     @Override
-    public void loadGroup(String groupId, OnCompleteListener<Group> onCompleteListener) {
-        mSlaveDataSource.loadGroup(groupId, onCompleteListener);
+    public void loadGroup(String groupId, final OnCompleteListener<Group> listener) {
+        if (mGroup != null && mGroup.getId().equals(groupId)) {
+            listener.onComplete(mGroup, true);
+        } else {
+            mSlaveDataSource.loadGroup(groupId, new OnCompleteListener<Group>() {
+                @Override
+                public void onComplete(Group result, boolean success) {
+                    if (success) {
+                        mGroup = result;
+                    }
+                    listener.onComplete(result, success);
+                }
+            });
+        }
     }
 
     @Override
@@ -92,7 +105,6 @@ public class GroupMembersRepository implements DevicesDataSource {
 
     @Override
     public void stopDevicesDiscovering() {
-        Log.d(TAG, "stopDevicesDiscovering: ");
         if (mScanning) mDeviceDataSource.stopDiscovering();
         mScanning = false;
     }

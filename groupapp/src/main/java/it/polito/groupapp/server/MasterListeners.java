@@ -96,7 +96,6 @@ public class MasterListeners {
 
     }
 
-
     public static class GroupCompositionListener implements ValueEventListener {
         private final String groupId;
         private final String keyId;
@@ -147,7 +146,6 @@ public class MasterListeners {
 
         }
     }
-
 
     private static abstract class AbstractChildEventListener implements ChildEventListener {
 

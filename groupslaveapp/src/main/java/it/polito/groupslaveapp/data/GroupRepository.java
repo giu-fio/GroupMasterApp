@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import java.util.List;
 
 import it.polito.groupslaveapp.data.source.DataSource;
-import it.polito.groupslaveapp.data.source.DeviceDataSource;
 import it.polito.groupslaveapp.data.source.GroupDataSource;
 import it.polito.groupslaveapp.util.OnCompleteListener;
 
@@ -17,20 +16,19 @@ public class GroupRepository implements DataSource {
 
     private static GroupRepository INSTANCE = null;
     private GroupDataSource groupDataSource;
-    private DeviceDataSource deviceDataSource;
 
-    private GroupRepository(GroupDataSource groupDataSource, DeviceDataSource deviceDataSource) {
+    private Group mGroup;
+
+    private GroupRepository(GroupDataSource groupDataSource) {
         this.groupDataSource = groupDataSource;
-        this.deviceDataSource = deviceDataSource;
     }
 
-    public static GroupRepository getInstance(GroupDataSource groupDataSource, DeviceDataSource deviceDataSource) {
+    public static GroupRepository getInstance(GroupDataSource groupDataSource) {
         if (INSTANCE == null) {
-            INSTANCE = new GroupRepository(groupDataSource, deviceDataSource);
+            INSTANCE = new GroupRepository(groupDataSource);
         }
         return INSTANCE;
     }
-
 
     @Override
     public void cancelJoin(Group selectedGroup, OnCompleteListener<Group> listener) {
@@ -38,8 +36,20 @@ public class GroupRepository implements DataSource {
     }
 
     @Override
-    public void loadGroup(String groupId, OnCompleteListener<Group> listener) {
-        groupDataSource.loadGroup(groupId, listener);
+    public void loadGroup(String groupId, final OnCompleteListener<Group> listener) {
+        if (mGroup != null && mGroup.getId().equals(groupId)) {
+            listener.onComplete(mGroup, true);
+        } else {
+            groupDataSource.loadGroup(groupId, new OnCompleteListener<Group>() {
+                @Override
+                public void onComplete(Group result, boolean success) {
+                    if (success) {
+                        mGroup = result;
+                    }
+                    listener.onComplete(result, success);
+                }
+            });
+        }
     }
 
     @Override
@@ -58,16 +68,6 @@ public class GroupRepository implements DataSource {
     }
 
     @Override
-    public void startDevicesDiscovering(@NonNull FindDevicesCallback callback) {
-
-    }
-
-    @Override
-    public void stopDevicesDiscovering() {
-
-    }
-
-    @Override
     public void stopSearchGroup() {
         groupDataSource.stopSearchGroup();
     }
@@ -77,13 +77,4 @@ public class GroupRepository implements DataSource {
         groupDataSource.sendVisibleDevices(groupId, devices);
     }
 
-    @Override
-    public void start() {
-
-    }
-
-    @Override
-    public void stop() {
-
-    }
 }

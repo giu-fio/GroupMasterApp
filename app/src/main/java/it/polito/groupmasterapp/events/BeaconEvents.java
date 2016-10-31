@@ -1,4 +1,4 @@
-package it.polito.groupmasterapp;
+package it.polito.groupmasterapp.events;
 
 import org.altbeacon.beacon.Beacon;
 

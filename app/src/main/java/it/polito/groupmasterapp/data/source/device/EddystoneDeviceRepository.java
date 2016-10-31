@@ -12,7 +12,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import it.polito.groupmasterapp.BeaconEvents;
+import it.polito.groupmasterapp.events.BeaconEvents;
 import it.polito.groupmasterapp.add_members.EddystoneService;
 import it.polito.groupmasterapp.data.Device;
 import it.polito.groupmasterapp.data.source.DevicesDataSource;

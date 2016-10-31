@@ -19,7 +19,7 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-import it.polito.groupmasterapp.BeaconEvents;
+import it.polito.groupmasterapp.events.BeaconEvents;
 import it.polito.groupmasterapp.Configuration;
 
 public class EddystoneService extends Service implements BeaconConsumer, RangeNotifier {
