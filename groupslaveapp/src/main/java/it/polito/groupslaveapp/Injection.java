@@ -15,6 +15,6 @@ import it.polito.groupslaveapp.data.source.FirebaseGroupDataSource;
 public class Injection {
     public static GroupRepository provideGroupRepository(@NonNull Context context) {
         Preconditions.checkNotNull(context);
-        return GroupRepository.getInstance(new FirebaseGroupDataSource(), null);
+        return GroupRepository.getInstance(new FirebaseGroupDataSource());
     }
 }
