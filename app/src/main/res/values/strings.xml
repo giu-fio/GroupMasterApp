@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">GroupMasterApp</string>
+    <string name="title_activity_create_group">CreateGroupActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_close">Chiudi</string>
+    <string name="icon">icon</string>
+    <string name="discovery_message">Premere %s per avviare la ricerca dei dispositivi</string>
+    <string name="no_devices_message">Nessun dispositivo trovato</string>
+    <string name="no_slaves_message">Nessun smarthphone trovato</string>
+    <string name="discovery_button">DISCOVERY</string>
+    <string name="crea_button">Crea</string>
+    <string name="title_activity_create_new_group">CreateNewGroupActivity</string>
+    <string name="create_error">Imprevisto durante la creazione del gruppo</string>
+    <string name="generic_error">Imprevisto inaspettato!</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">Master APP</string>
+    <string name="title_activity_group_actions">GroupActionsActivity</string>
+    <string name="n_device">%d device</string>
+    <string name="n_distance">%.2f m</string>
+</resources>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">GroupSlaveApp</string>
+    <string name="title_activity_search_group">SearchGroupActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="search_error">Errore durante la ricerca di gruppi</string>
+    <string name="title_activity_join_group">JoinGroupActivity</string>
+    <string name="discovery_button">DISCOVERY</string>
+    <string name="join_button">Partecipa</string>
+    <string name="icon">icon</string>
+    <string name="discovery_message">Premere %s per avviare la ricerca dei gruppi</string>
+    <string name="no_groups_message">Nessun gruppo trovato</string>
+    <string name="join_search_error">Imprevisto durante la ricerca dei gruppi</string>
+    <string name="title_activity_group_action_slave">GroupActionSlaveActivity</string>
+    <string name="n_distance">%.2f m</string>
+    <string name="n_device">%d device</string>
+    <string name="action_close">Chiudi</string>
+    <string name="generic_error">Errore!</string>
+</resources>

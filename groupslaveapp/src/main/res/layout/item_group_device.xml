@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+
+    <ImageView
+        android:layout_marginStart="24dp"
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/icon"
+        android:src="@drawable/ic_bluetooth_indigo_700_24dp"/>
+
+    <TextView
+        android:id="@+id/uid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="32dp"
+        android:layout_toEndOf="@+id/icon"
+        android:drawablePadding="8dp"
+        android:ellipsize="end"
+        android:textStyle="bold"
+        tools:text="Name"/>
+
+    <TextView
+        android:id="@+id/distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/uid"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        tools:text="10 m"/>
+
+</RelativeLayout>
